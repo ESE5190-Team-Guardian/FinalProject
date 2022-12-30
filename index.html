@@ -50,7 +50,7 @@
               Xuanang Chen https://github.com/IndigoQuadratic  
             </p>
             <h2>"Posture Helper" Intro</h2>
-            <img src="Posture Helper.JPG">
+            <img src="Posture Helper.JPG" width="672" height="504">
             <p>
               As Upenn students, we need to sit in front of the computer every day to complete our assignments. The improper sitting posture and the sedentary lifestyle will affect our health. Therefore, we are going to design a system to remind us to correct our sitting posture and take a break after working for a long time.
             </p>
@@ -73,17 +73,17 @@
               - User-friendliness: it is absolutely essential that even the most minimally tech-savvy user feel capable and comfortable setting up and using the posture helper. Therefore the system must provide plenty of intuitive feedback, and must convey the experience of plug-and-play simplicity.
             </p>
             <h2>Architecture</h2>
-            <img src="Architecture.png">
+            <img src="Architecture.png" width="693" height="444">
             <h2>Electronics</h2>
             <p>
               In this project, two input sensors were used to accomplish the basic function of the sitting posture corrector, they are LSM6DSO and HC-SR04 respectively. Both of them are connected to the RP2040 microcontroller via I2C. A pinout description of RP2040 is shown below.
             </p>
-            <img src="Adafruit_products_qtpy-rp2040-pins.png">
+            <img src="Adafruit_products_qtpy-rp2040-pins.png" width="661.5" height="363">
             <h3>Qwiic 6DoF (LSM6DSO)</h3>
             <p>
               The LSM6DSO is an accelerometer and gyroscope sensor. In order to using the I2C mode, we plug a Qwiic cable between the RP2040 and the Qwiic 6DoF LSM6DSO. For this product, we only need the acceleration input of three different axis (roll, pitch, yaw). The measured data will send to RP2040 through the I2C. When the user’s upper body leans forward, the inclination can be calculated by the acceleration. The specific logic is shown here:  
             </p>
-            <img src="Qwiic 6DoF-Logic.png">
+            <img src="Qwiic 6DoF-Logic.png" width="495" height="175">
             <p>
               Thus we can get the core code of angle calculation:  
               <code>
@@ -95,7 +95,12 @@
             <p>
               We choose to use I2C to attach LSM6DSO to RP2040, so we connect LSM6DSO and RP2040 by Qwiic cable like below:  
             </p>
-            <img src="Qwiic 6DoF-Logic.png">
+            <img src="Qwiic 6DoF.jpg">
+            <h3>HC-SR04</h3>
+            <p>
+              HC-SR04 is an Ultrasonic Sonar Distance Sensors that can report the range of objects up to 13 feet away. An HC-SR04 ultrasonic distance sensor actually consists of two ultrasonic transducers. One operates as a transmitter that converts the electrical signal into 40 KHz ultrasonic sound pulses, the other operates as a receiver and listens for the transmitted pulses. When the receiver receives these pulses, it produces an output pulse whose width is proportional to the distance of the object in front. Here is the graph of the HC-SR04 wired up to the microcontroller.  
+            </p>
+            <img src="HCSR04CONNECT.jpg">
 
           </div>
           
